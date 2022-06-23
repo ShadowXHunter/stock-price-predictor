@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Price Predictor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Stock Price Predictor</h1>
+      <h2>Prediction of closing prices of different stocks using LSTM and tweet sentiment analysis</h2>
+      <div class="container">
+      <div class="select-menu">
+          <div class="select-btn">
+            <span class="sBtn-text">Select Stock</span>
+            <i class="bx bx-chevron-down"></i>
+          </div>
+
+          <ul class="options">
+              <li class="option">
+                  <span class="option-text">AAPL</span>
+              </li>
+              <li class="option">
+                  <span class="option-text">AMZN</span>
+              </li>
+              <li class="option">
+                  <span class="option-text">GOOGL</span>
+              </li>
+              <li class="option">
+                  <span class="option-text">MSFT</span>
+              </li>
+              <li class="option">
+                  <span class="option-text">TSLA</span>
+              </li>
+          </ul>
+      </div>
+      <div class="date container">
+        <p class="fieldname">Start Date: </p> 
+        <input id="txtDate1" type="text" placeholder="dd/mm/yyyy" />
+      </div>
+      <div class="date container">
+        <p class="fieldname">End Date:</p>
+        <input id="txtDate2" type="text" placeholder="dd/mm/yyyy" />
+      </div>
+      <div>
+        <button class="btn" id="fetchbtn" type="button">Predict</button>
+      </div>
+    </div>
+    <div id="loader">
+      <img src = "{{ url_for('static', path='/Stopwatch.gif') }}">
+      <p id="loadingmsg">Loading... Please Wait!</p>
+    </div>
+    <div id="chart">
+      <canvas id="myChart" width="2000" height="900"></canvas>
+    </div>
+    </div>
+      
+    
+
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+  </body>
+</html>
